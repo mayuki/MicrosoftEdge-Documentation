@@ -19,12 +19,12 @@
   - [Assertions](#assertions)
   - [Traces](#traces-and-profiles)
 -->
-  - [カスタムメッセージ](#custom-messages)
-  - [調査可能なオブジェクトとノード](#inspectable-objects-and-nodes)
-  - [カウンター](#counters)
-  - [タイマー](#timers)
-  - [アサーション](#assertions)
-  - [トレース](#traces-and-profiles)
+  - [カスタムメッセージ](#カスタムメッセージ)
+  - [調査可能なオブジェクトとノード](#調査可能なオブジェクトとノード)
+  - [カウンター](#カウンター)
+  - [タイマー](#タイマー)
+  - [アサーション](#アサーション)
+  - [トレース](#トレースとプロファイル)
 
 <!-- ### Custom messages -->
 ### カスタムメッセージ

@@ -18,10 +18,13 @@
 
 *上の画像ではページの再読み込みのためのJavaScriptコマンドを入力し、IntelliSense自動コード補完が表示されています。reloadメソッドが選択されると、ページが再読み込みされコンソールにJavaScriptのデバッグメッセージを出力されます。*
 
-   <!-- - **In:** Run JavaScript to view and change values in running webpages, add functions to running code, and run debug code on the fly, all while taking advantage of the Microsoft Edge [IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx) auto code completion. -->
+<!-- 
+   - **In:** Run JavaScript to view and change values in running webpages, add functions to running code, and run debug code on the fly, all while taking advantage of the Microsoft Edge [IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx) auto code completion.
+   - **Out:** Microsoft Edge and JavaScript code deliver status, error, and debug messages to developers, including inspectable JavaScript objects and DOM Nodes. For more on how to send debug information and other messages to the console from your code, read up on [Using the Console API](./using-the-console-api/).
+-->
+
    - **入力:** JavaScriptを実行することで表示中のWebページの値を表示や変更したり、実行中のコードに機能を追加したり、その場でデバッグコードを実行したりでき、その間ずっとMicrosoft Edge [IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx)自動コード補完の恩恵を受けることができます。
 
-   <!-- - **Out:** Microsoft Edge and JavaScript code deliver status, error, and debug messages to developers, including inspectable JavaScript objects and DOM Nodes. For more on how to send debug information and other messages to the console from your code, read up on [Using the Console API](./using-the-console-api/). -->
    - **出力:** Microsoft EdgeとJavaScriptコードはステータスやエラー、デバッグメッセージを調査可能なJavaScriptオブジェクトとDOMノードを含めて開発者へ届けます。
 
 <!-- ### Messages Microsoft Edge sends to the console -->
@@ -30,11 +33,14 @@
 <!-- The Console has three categories: -->
 
 コンソールは3つのカテゴリーを持ちます:
-   <!-- - **Error:** Critical errors that cause code not to run. For more info, see a list of [error codes](./console-error-and-status-codes) used in the console. -->
+
+<!--
+   - **Error:** Critical errors that cause code not to run. For more info, see a list of [error codes](./console-error-and-status-codes) used in the console.
+   - **Warning:** Possible errors in your webpage that don't necessarily break it, but may cause unexpected behavior.
+   - **Information:** Non-critical information you might want to know.
+-->
    - **エラー:** コードの実行ができない致命的なエラーです。もっと詳しい情報はコンソールで使われている[エラーコード](./console-error-and-status-codes)の一覧を参照してください
-   <!-- - **Warning:** Possible errors in your webpage that don't necessarily break it, but may cause unexpected behavior. -->
    - **警告:** Webページのエラーだと考えられますが、必ずしも動作しないわけではないものの予期せぬ挙動が発生するかもしれません
-   <!-- - **Information:** Non-critical information you might want to know. -->
    - **情報:** 致命的ではなく、知りたいことがあるかもしれない情報です
 
 ![Console System Messages](../media/Edge_Console_messages.gif)
@@ -106,13 +112,15 @@ To return to the top level window, use `cd()` with no argument. -->
 
 コンソールセレクターはDOM構造から要素を素早く選択するための単純な短縮記述を提供します。
 
-   <!-- - **$()** is a shorthand for [**`document.querySelector()`**](https://msdn.microsoft.com/en-us/library/cc288169.aspx). -->
+<!--
+   - **$()** is a shorthand for [**`document.querySelector()`**](https://msdn.microsoft.com/en-us/library/cc288169.aspx).
+   - **$$()** is a shorthand for [**`document.querySelectorAll()`**](https://msdn.microsoft.com/en-us/library/cc304115.85.aspx).
+   - **$_()** is a shorthand for the last selected element or object.
+   - **$0, $1, $2, $3, $4** return the last items selected in the [**DOM Explorer tool**](../dom-explorer/).
+-->
    - **$()** は [**`document.querySelector()`**](https://msdn.microsoft.com/en-us/library/cc288169.aspx) の短縮記述
-   <!-- - **$$()** is a shorthand for [**`document.querySelectorAll()`**](https://msdn.microsoft.com/en-us/library/cc304115.85.aspx). -->
    - **$$()** は [**`document.querySelectorAll()`**](https://msdn.microsoft.com/en-us/library/cc304115.85.aspx) の短縮記述
-   <!-- - **$_()** is a shorthand for the last selected element or object. -->
    - **$_()** は最後に選択した要素またはオブジェクトの短縮記述
-   <!-- - **$0, $1, $2, $3, $4** return the last items selected in the [**DOM Explorer tool**](../dom-explorer/). -->
    - **$0, $1, $2, $3, $4** は[**DOM Explorer ツール**](../dom-explorer/)で最後に選択したアイテム
 
 <!-- **Important**  If code in a webpage assigns a function to **$** or **$$**, that function overrides the console selector functions while the console is interacting with that page or its frames. -->

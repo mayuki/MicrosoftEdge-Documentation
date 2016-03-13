@@ -10,7 +10,7 @@ F12 試験的機能はF12の上部にあるナビゲーションバーの最後�
 
 <!-- With this experiment enabled you can edit any JavaScript file in the debugger source viewer. Simply click on the viewer to place the cursor and type away. -->
 
-この試験的機能を有効にするとデバッガーのソースビューアーでJavaScriptファイルを変更できるようになります。ビューアーをクリックしてカーソルを合わせて文字を打つだけです。
+この試験的機能を有効にするとデバッガーのソースビューアーでJavaScriptファイルを変更できます。ビューアーをクリックしてカーソルを合わせて文字を打つだけです。
 
 ![Edge Experiment Tab](../media/Edge_Experiments_edit.gif)
 
@@ -28,7 +28,7 @@ F12 試験的機能はF12の上部にあるナビゲーションバーの最後�
 
 <!-- Once saved, you will be able to compare the modified document to the original document using the **diff** command.  -->
 
-保存すると、**diff**コマンドを使うことで編集後のドキュメントとオリジナルのドキュメントを比較することができます。
+保存すると、**diff**コマンドを使うことで編集後のドキュメントとオリジナルのドキュメントを比較できます。
 
 ![Edge Experiment Diff](../media/Edge_Experiment_diff.png)
 
@@ -44,4 +44,4 @@ F12 試験的機能はF12の上部にあるナビゲーションバーの最後�
 
 <!-- You will not be able to edit when paused in the **[Debugger](../debugger/)** or when a document has been pretty printed.  -->
 
-**[デバッガー](../debugger/)**で一時停止中またはドキュメントがpretty printされている場合、編集することはできません。
+**[デバッガー](../debugger/)**で一時停止中またはドキュメントがpretty printされている場合は編集できません。

@@ -23,7 +23,7 @@
 
 <!-- During profiling, perform the fewest actions you need to capture the slowness you're trying to analyze. Extra interactions with the page produce extra data, which clutters results.  -->
 
-プロファイリング中、遅さをキャプチャーして解析するために最小限の操作をします。余計な操作をするとページから余計なデータが生まれ、結果がぐちゃぐちゃになってしまいます。
+プロファイリング中には遅さをキャプチャーして解析するための最小限の操作をしてください。余計な操作をするとページから余計なデータが生まれ、結果がぐちゃぐちゃになってしまいます。
 
 <!-- If you need accurate page load times in the report, visit the [**Network tool**](../network/) and use its **clear browser cache** option before profiling. Using the **Network tool** ensures you're loading all page resources from the network, and then reloads the page as soon as you start profiling. -->
 
@@ -35,11 +35,11 @@
 
 <!-- When you've captured the behavior you want to profile, click **stop profiling to generate a report** or the square icon at the top of the tool. -->
 
-プロファイルするための挙動をキャプチャーできたら、**stop profiling to generate a report**またはツールの上部の四角アイコンをクリックしてください。
+プロファイルしたい挙動をキャプチャーできたら、**stop profiling to generate a report**またはツールの上部の四角アイコンをクリックしてください。
 
 <!-- Perhaps you don't have time to dig into the information now or want to look at the results of a prior profiling session. The import (folder icon or CTRL + O) and export (disk icon or CTRL + S) functions make it possible to inspect a profiling session at a later date without having to keep the browser and F12 developer tools open the whole time. -->
 
-もしかしたら情報を今すぐ解析する時間がなかったり、以前のプロファイルセッションの結果を見直したりするかもしれません。インポート(フォルダーアイコンまたはCTRL + O)とエクスポート(ディスクアイコンまたはCTRL + S)の機能でブラウザーとF12開発者ツールをずっと開きっぱなしにしておかなくても後日調査できるようになります。
+もしかしたら情報を今すぐ解析する時間がなかったり、以前のプロファイルセッションの結果を見直したりするかもしれません。インポート(フォルダーアイコンまたはCTRL + O)とエクスポート(ディスクアイコンまたはCTRL + S)の機能でブラウザーとF12開発者ツールをずっと開きっぱなしにしておかなくても後日調査できます。
 
 ## The performance session report
 

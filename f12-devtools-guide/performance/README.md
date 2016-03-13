@@ -1,26 +1,45 @@
-# Performance
+<!-- # Performance -->
+# パフォーマンス
 
-Using the **Performance** tool, profile your webpage's frame rate with the Timeline and JavaScript execution times with the JavaScript call stacks. The reports on different types of CPU usage and JavaScript execution profiling help you analyze UI performance problems.
+<!-- Using the **Performance** tool, profile your webpage's frame rate with the Timeline and JavaScript execution times with the JavaScript call stacks. The reports on different types of CPU usage and JavaScript execution profiling help you analyze UI performance problems. -->
 
-## Speed matters
+**Performance**ツールを使うことでWebページのフレームレートのタイムライン、JavaScriptのコールスタックを含む実行時間をプロファイルできます。CPU使用率とJavaScriptのプロファイリングの様々なレポートはUIパフォーマンスの問題を解析するのを手助けとなります。
 
-Whether it's a jittery animation or user interface elements that respond slowly, a user's experience on your site is diminished when the UI isn't smooth and responsive. The new **Performance** profiler helps you see what's happening behind the scenes when your pages are slowing down. This info can give clues to improve speed.
+<!-- ## Speed matters -->
+## 速度の問題
+
+<!-- Whether it's a jittery animation or user interface elements that respond slowly, a user's experience on your site is diminished when the UI isn't smooth and responsive. The new **Performance** profiler helps you see what's happening behind the scenes when your pages are slowing down. This info can give clues to improve speed. -->
+
+アニメーションがガクガクしたり、ユーザーインターフェース要素の反応が遅かったりといったことで、UIがスムーズでもなく反応もよくないといった場合にユーザーの体験は損なわれてしまいます。新しい**Performance**プロファイラはページがスローダウンしている裏側で何が起きているのかを確認する手助けをします。この情報はスピードを改善するための手がかりとなります。
 
 ![Edge F12 Tools Performance](../media/Edge_Performance.png)
 
-### Recording a profiling session
+<!-- ### Recording a profiling session -->
+### プロファイルセッションを記録する
 
-When you first load the **Performance** tool, you'll see an instruction to **start profiling to begin a performance session** in the main pane. Click the instruction link or the arrow icon at the top of the tool to start profiling.
+<!-- When you first load the **Performance** tool, you'll see an instruction to **start profiling to begin a performance session** in the main pane. Click the instruction link or the arrow icon at the top of the tool to start profiling. -->
 
-During profiling, perform the fewest actions you need to capture the slowness you're trying to analyze. Extra interactions with the page produce extra data, which clutters results. 
+**Performance**を最初に読み込んだ時、**start profiling to begin a performance session**という案内がメインペインに見つかります。この案内のリンクまたはツールの上部にある矢印アイコンをクリックすることでプロファイリングがスタートします。
 
-If you need accurate page load times in the report, visit the [**Network tool**](../network/) and use its **clear browser cache** option before profiling. Using the **Network tool** ensures you're loading all page resources from the network, and then reloads the page as soon as you start profiling.
+<!-- During profiling, perform the fewest actions you need to capture the slowness you're trying to analyze. Extra interactions with the page produce extra data, which clutters results.  -->
 
-The **Performance** tool automatically marks **app lifecycle events**, such as [**DOMContentLoaded**](https://msdn.microsoft.com/en-us/library/hh869434.aspx). Use the [`performance.mark()`](https://msdn.microsoft.com/en-us/library/jj585593.aspx) method to set custom **user marks** from within your code.
+プロファイリング中、遅さをキャプチャーして解析するために最小限の操作をします。余計な操作をするとページから余計なデータが生まれ、結果がぐちゃぐちゃになってしまいます。
 
-When you've captured the behavior you want to profile, click **stop profiling to generate a report** or the square icon at the top of the tool.
+<!-- If you need accurate page load times in the report, visit the [**Network tool**](../network/) and use its **clear browser cache** option before profiling. Using the **Network tool** ensures you're loading all page resources from the network, and then reloads the page as soon as you start profiling. -->
 
-Perhaps you don't have time to dig into the information now or want to look at the results of a prior profiling session. The import (folder icon or CTRL + O) and export (disk icon or CTRL + S) functions make it possible to inspect a profiling session at a later date without having to keep the browser and F12 developer tools open the whole time.
+もしレポート中で正確なページのロード時間を知りたい場合は、[**Network tool**](../network/)を開いて**clear browser cache**オプションをプロファイリングの前に実行してください。
+
+<!-- The **Performance** tool automatically marks **app lifecycle events**, such as [**DOMContentLoaded**](https://msdn.microsoft.com/en-us/library/hh869434.aspx). Use the [`performance.mark()`](https://msdn.microsoft.com/en-us/library/jj585593.aspx) method to set custom **user marks** from within your code. -->
+
+**Performance**ツールは[**DOMContentLoaded**](https://msdn.microsoft.com/en-us/library/hh869434.aspx)のような**アプリ ライフサイクル イベント**を自動的にマークします。コードからは[`performance.mark()`](https://msdn.microsoft.com/en-us/library/jj585593.aspx)メソッドを使うことでカスタムの**ユーザー マーク**をセットできます。
+
+<!-- When you've captured the behavior you want to profile, click **stop profiling to generate a report** or the square icon at the top of the tool. -->
+
+プロファイルするための挙動をキャプチャーできたら、**stop profiling to generate a report**またはツールの上部の四角アイコンをクリックしてください。
+
+<!-- Perhaps you don't have time to dig into the information now or want to look at the results of a prior profiling session. The import (folder icon or CTRL + O) and export (disk icon or CTRL + S) functions make it possible to inspect a profiling session at a later date without having to keep the browser and F12 developer tools open the whole time. -->
+
+もしかしたら情報を今すぐ解析する時間がなかったり、以前のプロファイルセッションの結果を見直したりするかもしれません。インポート(フォルダーアイコンまたはCTRL + O)とエクスポート(ディスクアイコンまたはCTRL + S)の機能でブラウザーとF12開発者ツールをずっと開きっぱなしにしておかなくても後日調査できるようになります。
 
 ## The performance session report
 

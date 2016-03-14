@@ -41,17 +41,25 @@
 
 もしかしたら情報を今すぐ解析する時間がなかったり、以前のプロファイルセッションの結果を見直したりするかもしれません。インポート(フォルダーアイコンまたはCTRL + O)とエクスポート(ディスクアイコンまたはCTRL + S)の機能でブラウザーとF12開発者ツールをずっと開きっぱなしにしておかなくても後日調査できます。
 
-## The performance session report
+<!-- ## The performance session report -->
+## パフォーマンスセッションレポート
 
-### The ruler
+<!-- ### The ruler -->
+### ルーラー
 
 ![Edge F12 Tools Ruler](../media/F12BlueResponsivenessRuler.png)
 
-The ruler displays the amount of time the session ran as well as **app lifecycle events** and **user marks**. Hovering over events and marks displays their labels and helps orient yourself within a session. 
+<!-- The ruler displays the amount of time the session ran as well as **app lifecycle events** and **user marks**. Hovering over events and marks displays their labels and helps orient yourself within a session.  -->
 
-User marks can be given labels by using a string for the argument of the `performance.mark()` method.
+ルーラーには**アプリ ライフサイクル イベント**と**ユーザー マーク**はもちろんセッションの実行時間が表示されます。イベントとマークにカーソルを合わせることでラベルとセッション中の位置を表示します。
 
-**User marks** are made more useful with the [`performance.measure()`](https://msdn.microsoft.com/en-us/library/jj585594.aspx) API. After you have set **user marks**, set a **user measure** to group the events that happened between the two marks. For example, if you have two **user marks** labeled "Begin Rotation" and "End Rotation," use the following code to group them and label the group as "box cycler."
+<!-- User marks can be given labels by using a string for the argument of the `performance.mark()` method. -->
+
+ユーザー マークには`performance.mark()`メソッドの引数の文字列をラベルとして付けることができます。
+
+<!-- **User marks** are made more useful with the [`performance.measure()`](https://msdn.microsoft.com/en-us/library/jj585594.aspx) API. After you have set **user marks**, set a **user measure** to group the events that happened between the two marks. For example, if you have two **user marks** labeled "Begin Rotation" and "End Rotation," use the following code to group them and label the group as "box cycler." -->
+
+**ユーザー マーク**は[`performance.measure()`](https://msdn.microsoft.com/en-us/library/jj585594.aspx) APIでもっと便利になります。**ユーザー マーク**をセットしたのち、2つのマークの間で発生したイベントをグループ化するために**user measure**をセットできます。例えば、もし"Begin Rotation"と"End Rotation"という二つの**ユーザー マーク**がある場合、次のコードでそれらを"box cycler"というラベルでグループ化できます。
 
 ###### *JavaScript*
 ```javascript
@@ -60,17 +68,26 @@ performance.measure("box cycler","Begin Rotation","End Rotation");
 
 ![Edge F12 Tools Performance Measure](../media/Edge_Performance_measure.png)
 
-### The timeline
+<!-- ### The timeline -->
+### タイムライン
 
 ![Edge F12 Tools Performance Measure](../media/gdr_f12_ResponsivenessTimeline.png)
 
-The **timeline** shows two different measures: 
+<!-- The **timeline** shows two different measures:  -->
 
+**タイムライン*は二つの尺度を表示します:
 
+<!-- 
   - **CPU utilization** shows the amounts and types of activity occurring, broken down into color -coded categories. For a more detailed breakdown of the categories, see [Event categories](#event-categories).
   - **Visual throughput** shows the estimated frames-per-second display. Dips in the frame rate indicate where slowdowns are happening and a frame rate of zero means frames are being dropped.
+ -->
 
-Click and drag horizontally across an area on the **timeline** to highlight it. This filters the **Timeline details** to show just the details of the highlighted area. Zoom for more details. To the right of the zoom controls, at the top of the **Performance** tool is a **clear selection** icon that removes the highlight.
+  - **CPU 使用率** は利用率と色でカテゴリを分類された発生したアクティビティの種類を表示します。分類されたカテゴリについての詳しい情報は[イベント カテゴリー](#イベント-カテゴリー)を参照してください
+  - **ビジュアル スループット**は表示の一秒当たりのフレーム数(fps)の大よその値を表示します。フレームレートの落ち込みはどこでスローダウンが発生したかを示し、フレームレートがゼロであればフレームがドロップされていることを意味します
+
+<!-- Click and drag horizontally across an area on the **timeline** to highlight it. This filters the **Timeline details** to show just the details of the highlighted area. Zoom for more details. To the right of the zoom controls, at the top of the **Performance** tool is a **clear selection** icon that removes the highlight. -->
+
+**タイムライン**上のエリアをクリックして水平方向にまたぐようにドラッグするとハイライトできます。この**タイムライン 詳細**フィルターでハイライトされたエリアの詳細だけを表示できます。さらに詳細を見るにはズームしてください。**Performance**ツールの上部のズームコントロールの右にはハイライトを削除する**Clear selection**アイコンがあります。
 
 ### The timeline details
 

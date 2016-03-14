@@ -5,6 +5,8 @@
 - f12-devtools-guide
     - [console: コンソールツール](f12-devtools-guide/console/README.md)
         - [using-the-console-api: コンソールAPIを使う](f12-devtools-guide/console/using-the-console-api/README.md)
+    - debugger
+        - [edit-css-in-debugger: デバッガーでCSSを編集する](f12-devtools-guide/debugger/edit-css-in-debugger/README.md)
     - [experiments: F12試験的機能](f12-devtools-guide/experiments/README.md)
     - [performance: パフォーマンス(WIP)](f12-devtools-guide/performance/README.md)
 

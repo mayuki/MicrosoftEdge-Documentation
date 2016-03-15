@@ -2,7 +2,7 @@
 
 ## Translated
 - [apireference: Microsoft Edge API](apireference/README.md)
-- f12-devtools-guide
+- [f12-devtools-guide: Microsoft Edge開発者ツールに触れる](f12-devtools-guide/README.md)
     - [console: コンソールツール](f12-devtools-guide/console/README.md)
         - [using-the-console-api: コンソールAPIを使う](f12-devtools-guide/console/using-the-console-api/README.md)
     - debugger

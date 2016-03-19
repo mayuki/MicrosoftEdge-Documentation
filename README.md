@@ -2,6 +2,9 @@
 
 ## Translated
 - [apireference: Microsoft Edge API](apireference/README.md)
+- [extensions: Microsoft Edge 拡張](extensions/README.md)
+    - [adding-and-removing-extensions: プレビュービルドのMicrosoft Edgeで拡張を追加または削除する](extensions/adding-and-removing-extensions/README.md)
+    - [troubleshooting: トラブルシューティング](extensions/troubleshooting/README.md)
 - [f12-devtools-guide: Microsoft Edge開発者ツールに触れる](f12-devtools-guide/README.md)
     - [console: コンソールツール](f12-devtools-guide/console/README.md)
         - [using-the-console-api: コンソールAPIを使う](f12-devtools-guide/console/using-the-console-api/README.md)

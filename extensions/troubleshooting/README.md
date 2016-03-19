@@ -7,7 +7,7 @@ the following toubleshoot topics may help: -->
 [https://dev.windows.com](http://www.aka.ms/msedge-extensions)からダウンロードしたパッケージングされていない拡張を読み込ませようとし、問題に遭遇した際には次のトラブルシューティングのトピックが役立つかもしれません:
 
 <!-- ### 1. I see the error "We couldn't load this extension" -->
-<!-- ### 1. "We couldn't load this extension"と表示された
+### 1. "We couldn't load this extension"と表示された
 
 <!-- This usually means that Microsoft Edge cannot access the extension folder you attempted to load. Try deleting the extension folder, running the .EXE again and then loading the extension folder that was created in your **Downloads** folder. -->
 

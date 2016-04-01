@@ -11,7 +11,6 @@ the following toubleshoot topics may help: -->
 
 <!-- This usually means that Microsoft Edge cannot access the extension folder you attempted to load. Try deleting the extension folder, running the .EXE again and then loading the extension folder that was created in your **Downloads** folder. -->
 
-これは、読み込ませようとした際にMicrosoft Edgeが拡張のフォルダーにアクセスできなかったことを意味することが大体です。拡張のフォルダーを削除して、.EXEを再度実行して、**Downloads**に作成された拡張のフォルダーから読み込むのを試してみてください。
 
 <!-- ### 2. I don't see the "Load extension" button -->
 ### 2. "Load extension"ボタンが見つからない

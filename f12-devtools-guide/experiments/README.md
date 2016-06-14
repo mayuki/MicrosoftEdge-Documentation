@@ -27,3 +27,7 @@ F12 試験的機能はF12の上部にあるナビゲーションバーの最後�
 ドキュメントに対するすべての変更は現在のページを離れるか再読み込みをすると失われます。
 
 **[デバッガー](../debugger/)**で一時停止中またはドキュメントがpretty printされている場合は編集できません。
+
+## Related topics
+
+[Microsoft Edge Developer Tools on Twitter: Find helpful F12 hints and news updates](https://twitter.com/EdgeDevTools)

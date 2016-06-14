@@ -3,7 +3,7 @@
 コンソールAPIは意味ある情報をアプリケーションからコンソールに送ったり、コンソールツールの中から診断情報を得るために開発者のためのメソッドを提供します。
 
 ## コードからレポートする
-[コンソールデバッグAPI](https://msdn.microsoft.com/en-us/library/hh772173.aspx)はコードからコンソールへ情報を送信する方法を提供します。情報は次の種類に分類されます:
+[コンソールデバッグAPI](https://msdn.microsoft.com/library/hh772173.aspx)はコードからコンソールへ情報を送信する方法を提供します。情報は次の種類に分類されます:
 
   - [カスタムメッセージ](#カスタムメッセージ)
   - [調査可能なオブジェクトとノード](#調査可能なオブジェクトとノード)
@@ -13,48 +13,41 @@
   - [トレース](#トレースとプロファイル)
 
 ### カスタムメッセージ
-カスタムメッセージには4つの選択肢があります。3つはシステムメッセージの書式に使います: [`console.info()`](https://msdn.microsoft.com/en-us/library/hh772178.aspx)は情報メッセージ、[`console.warn()`](https://msdn.microsoft.com/en-us/library/hh772181.aspx)は警告メッセージ、 [`console.error()`](https://msdn.microsoft.com/en-us/library/hh772176.aspx)はエラーです。4つ目、[`console.log()`](https://msdn.microsoft.com/en-us/library/hh772179.aspx)はアラートアイコンを表示しないプレーンなテキストです。4つともすべてメッセージには同様の引数をとります。
+カスタムメッセージには4つの選択肢があります。3つはシステムメッセージの書式に使います: [`console.info()`](https://msdn.microsoft.com/library/hh772178.aspx)は情報メッセージ、[`console.warn()`](https://msdn.microsoft.com/library/hh772181.aspx)は警告メッセージ、 [`console.error()`](https://msdn.microsoft.com/library/hh772176.aspx)はエラーです。4つ目、[`console.log()`](https://msdn.microsoft.com/library/hh772179.aspx)はアラートアイコンを表示しないプレーンなテキストです。4つともすべてメッセージには同様の引数をとります。
 
 **テキストだけの場合:**
 
-###### *JavaScript*
-
-`console.log('This is some text');`
->
-`This is some text`
-
+```JavaScript
+console.log('This is some text');
+```
+>`This is some text`
 
 
 **変数だけの場合:**
 
-###### *JavaScript*
 ```javascript
 var mytext = 'This is some text';
 console.log(mytext);
 ```
->
-`This is some text`
+>`This is some text`
 
 **テキストと変数の混在:**
-###### *JavaScript*
+
 ```javascript
 var mytext = 'pieces';
 var myval = 0;
 console.log("The number of " + mytext + "is " + myval);
 ```
->
-`The number of pieces is 0`
+>`The number of pieces is 0`
 
 **変数置換:**
 
-###### *JavaScript*
 ```javascript
 var mytext = 'pieces';
 var myval = 5;
 console.log("The number of %s is %d", mytext, myval);
 ```
->
-`The number of pieces is 5`
+>`The number of pieces is 5`
 
 変数置換は5つの変数型を持ちます:
   - %**s** - 文字列
@@ -71,71 +64,53 @@ console.log("The number of %s is %d", mytext, myval);
 ### 調査可能なオブジェクトとノード
 調査可能なオブジェクトは広げることのできるノードとして折りたたまれたツリー形式でコンソールに表示されます。コンソールは送られてきたものがdivのようなDOMノードであるのか、イベントのようなJavaScriptのオブジェクトであるのかといった種類を自動的に判別します。
 
-調査可能なJavaScriptオブジェクトを表示するには、[`console.dir()`](https://msdn.microsoft.com/en-us/library/jj152132.aspx)を利用してコンソールに送ります。
+調査可能なJavaScriptオブジェクトを表示するには、[`console.dir()`](https://msdn.microsoft.com/library/jj152132.aspx)を利用してコンソールに送ります。
 
-調査可能なDOMノードを表示するには、[`console.dirxml()`](https://msdn.microsoft.com/en-us/library/dn265067.aspx)を利用してコンソールに送ります。
+調査可能なDOMノードを表示するには、[`console.dirxml()`](https://msdn.microsoft.com/library/dn265067.aspx)を利用してコンソールに送ります。
 
-###### *HTML*
-```html
-<div id="thediv">
-   <p>Click the button to show this div as a JavaScript object and a
-   <em>DOM</em> node.</p>
-   <button id="thebutton">show it</button>
-</div>
-<script>
-  document.getElementById('thebutton').addEventListener('click', function(e){
-    var divid = document.getElementById('thediv');
-    console.log('Showing the div element as a DOM node.');
-    console.dirxml(divid);
-    console.log('Showing the div element as a JavaScript object.');
-    console.dir(divid);
-    console.log('Showing the div element via a plain console.log.');
-    console.log(divid);
-    console.log('Showing the click event via a plain console.log.');
-    console.log(e);
-    console.log('Argument logging for %s', thediv.id, thediv)
-  });
-</script>
-```
+codepenのサンプルをF12ツールと共に開いて、"show it"ボタンをクリックするとオブジェクトとノードがコンソールに表示されます。
+
+![codepen](https://codepen.io/MicrosoftEdgeDocumentation/pen/PNEKQX?editors=1010)(325)
+
+下のコンソールのスクリーンショットでは左の矢印を使い、オブジェクトとノードを開いているところです。
+
 ![Edge Console Inspectable objects and nodes](../../media/Edge_Console2.png)
-
-左の矢印を使ってオブジェクトとノードを開くことができます。
 
 DOMノードを右クリックすると表示されるコンテキストメニューに**Evaluate as Object**という選択肢があります。この選択肢を選ぶと、ノードをコンソールにオブジェクトして送ることができます。同様に、DOMノードのJavaScriptのオブジェクト表現のコンテキストメニューには**Evaluate as HTML**が用意されています。
 
 ### カウンター
 コードでカウンターをセットするのは比較的簡単な半面、何度も繰り返されるタスクでもあります。開発者のワークフローをスピードアップするため、コンソールデバッグAPIは単純な短縮記述を提供します。
 
-[`console.count()`](https://msdn.microsoft.com/en-us/library/dn265064.aspx)をカウンターのラベルを持つ文字列を引数として呼び出します。初回の呼び出しで指定したラベルでカウンターがコンソールに出力されます。続いて`console.count()`を同じラベルで呼び出すとカウンターが加算されます。カウンターをリセットして0にするにはラベルを指定して`console.countReset()`を呼び出します。
+<<<<<<< HEAD
+[`console.count()`](https://msdn.microsoft.com/library/dn265064.aspx)をカウンターのラベルを持つ文字列を引数として呼び出します。初回の呼び出しで指定したラベルでカウンターがコンソールに出力されます。続いて`console.count()`を同じラベルで呼び出すとカウンターが加算されます。カウンターをリセットして0にするにはラベルを指定して`console.countReset()`を呼び出します。
+=======
+Use [`console.count()`](https://msdn.microsoft.com/library/dn265064.aspx) with a string containing a counter label as its argument. The first use with a specific label establishes a counter in the Console output. Subsequent uses of `console.count()` with the same label increment the counter. To reset the counter to zero, use `console.countReset()` with the label.
+>>>>>>> f558c17fdf417c5b524d0bec25daa820ebd5db3d
 
-###### *JavaScript*
 ```javascript
 console.count('mylabel');
 for(var i = 0; i < 10; i++){
   console.count('mylabel');
 }
 ```
->
-`mylabel:         11`
+>`mylabel:         11`
 
 ### タイマー
-カウンターを作るのと同じように、コード中にタイマーを作るのも比較的簡単です。しかし[コンソールデバッグAPI](https://msdn.microsoft.com/en-us/library/hh772173.aspx)はそれをさらに簡単するべく単純で短縮記述法を提供しています。
+カウンターを作るのと同じように、コード中にタイマーを作るのも比較的簡単です。しかし[コンソールデバッグAPI](https://msdn.microsoft.com/library/hh772173.aspx)はそれをさらに簡単するべく単純で短縮記述法を提供しています。
 
-[`console.time()`](https://msdn.microsoft.com/en-us/library/dn265071.aspx)をコードのどこかで呼び出すことでタイマーを開始し、[`console.timeEnd()`](https://msdn.microsoft.com/en-us/library/dn265072.aspx)でタイマーを止めて結果をコンソールに送ります。もしタイマーにラベルを付けたい、または2つ以上のタイマーを使いたいのであれば、`console.time()`と`console.timeEnd()`メソッドの両方の引数にユニークなラベルとなる文字列を渡してください。引数を渡していない場合にはメソッドは"default"をラベルとして使います。
+[`console.time()`](https://msdn.microsoft.com/library/dn265071.aspx)をコードのどこかで呼び出すことでタイマーを開始し、[`console.timeEnd()`](https://msdn.microsoft.com/library/dn265072.aspx)でタイマーを止めて結果をコンソールに送ります。もしタイマーにラベルを付けたい、または2つ以上のタイマーを使いたいのであれば、`console.time()`と`console.timeEnd()`メソッドの両方の引数にユニークなラベルとなる文字列を渡してください。引数を渡していない場合にはメソッドは"default"をラベルとして使います。
 
 `console.timeStamp()`は言わばページの年齢です。メソッドはタイムスタンプをコンソールに出力し、現在のWebページが読み込まれてからのミリ秒を表示します。もしメソッドの引数に数値または文字列を渡した場合、それはラベルとして扱われ、デフォルトのラベルである"timestamp"を上書きします。**UI Responsiveness**プロファイルセッション中に呼び出した場合、コンソール出力に加えて、セッションタイムラインにユーザーマークがセッションが開始された時からの時間と共に追加されます。
 
 ### アサーション
-アサーションは開発者のワークフローをスピードアップするための異なる短縮記法です。[`console.assert()`](https://msdn.microsoft.com/en-us/library/hh772171.aspx)を呼び出す際に第一引数の評価結果がfalseとなる場合、[`console.error()`](https://msdn.microsoft.com/en-us/library/hh772176.aspx)を実行し、アサーションの追加の引数をエラーメッセージとして使います。
+アサーションは開発者のワークフローをスピードアップするための異なる短縮記法です。[`console.assert()`](https://msdn.microsoft.com/library/hh772171.aspx)を呼び出す際に第一引数の評価結果がfalseとなる場合、[`console.error()`](https://msdn.microsoft.com/library/hh772176.aspx)を実行し、アサーションの追加の引数をエラーメッセージとして使います。
 
 コードの使用している行:
 
-###### *JavaScript*
 `console.assert(f < 25, 'f is not less than %d, but is instead %o', 25, f);`
 
 これは下記のように書くのと同様:
 
-###### *JavaScript*
 ```javascript
 if(!(f < 25)){
   console.error('f is not less than %d, but is instead %o', 25, f)
@@ -148,11 +123,10 @@ if(!(f < 25)){
 コードがどこから呼ばれているのか、どのコードが実行されているのか、実行するのにどのぐらいの時間がかかっているのかを知るということは、遅さあるいは予期していない挙動の解析に役立ちます。
 
 スタックトレースはコードがトレース要求にたどり着くまでの上方の実行パスを表示します。
-[`console.trace()`](https://msdn.microsoft.com/en-us/library/hh772176.aspx)をコードから呼び出すことでスタックトレースを表示できます。
+[`console.trace()`](https://msdn.microsoft.com/library/hh772176.aspx)をコードから呼び出すことでスタックトレースを表示できます。
 
 このコードが...
 
-###### *JavaScript*
 ```javascript
 function a(){
   c();
@@ -190,10 +164,10 @@ at Global code (http://www.contoso.com/trace.html:31:1)
 
 メッセージの種類と内容がコンソールに送られてはいるものの、それらを追い続けることは難しいかもしれません。
 
-  - [`console.group()`](https://msdn.microsoft.com/en-us/library/dn265068.aspx) は展開状態で折りたたみ可能なグループを開始します。このコマンド以降に送信されたメッセージはグループに入り、`console.groupEnd()`メソッドが呼び出されるまで続きます。メソッドの第一引数に文字列を渡した場合、文字列はグループのラベルとして使用されます
-  - [`console.groupCollapsed()`](https://msdn.microsoft.com/en-us/library/dn265069.aspx)は折りたたまれた状態で折りたたみ可能なグループを開始します。ほかの点は`console.group()`と同様に振る舞います
-  - [`console.groupEnd()`](https://msdn.microsoft.com/en-us/library/dn265068.aspx)は一番最近開かれたグループを閉じます
-  - [`console.clear()`](https://msdn.microsoft.com/en-us/library/jj152131.aspx)は現在コンソールに表示されているすべてのメッセージを削除します
+  - [`console.group()`](https://msdn.microsoft.com/library/dn265068.aspx) は展開状態で折りたたみ可能なグループを開始します。このコマンド以降に送信されたメッセージはグループに入り、`console.groupEnd()`メソッドが呼び出されるまで続きます。メソッドの第一引数に文字列を渡した場合、文字列はグループのラベルとして使用されます
+  - [`console.groupCollapsed()`](https://msdn.microsoft.com/library/dn265069.aspx)は折りたたまれた状態で折りたたみ可能なグループを開始します。ほかの点は`console.group()`と同様に振る舞います
+  - [`console.groupEnd()`](https://msdn.microsoft.com/library/dn265068.aspx)は一番最近開かれたグループを閉じます
+  - [`console.clear()`](https://msdn.microsoft.com/library/jj152131.aspx)は現在コンソールに表示されているすべてのメッセージを削除します
 
 グループはグルーピングをさらに詳細なものにするため他のグループをネストできます。
 

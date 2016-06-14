@@ -11,7 +11,7 @@
 拡張がWindows Storeから利用できるようになるまでの間、このボタンはデフォルトで表示されている*はず*です。もし"More" (...)メニューを開いて、"Extensions"メニュー項目を選択し、ボタンが見つからない場合には次の手順をお試しください:
  
 1. アドレスバーに**"about:flags"**を入力して、**"Enter"**キーを押します
-2. **"Developer settings"**項目にある、**"Allow unpacked extensions to be loaded"**チェックボックスが選択されているか確認します
+2. **"Developer settings"**項目にある、**"Enable extension developer features"**チェックボックスが選択されているか確認します
 
    ![about flags](../media/aboutflags.PNG)  
 

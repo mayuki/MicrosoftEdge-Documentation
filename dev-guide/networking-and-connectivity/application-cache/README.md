@@ -1,7 +1,7 @@
 # Application cache
 
 
-The [Application Cache API](http://www.w3.org/TR/html5/browsers.html#offline) (or *AppCache*) was introduced in the [HTML5 spec](http://www.w3.org/TR/html5/browsers.html#application-cache-api), allowing you to create offline web applications. 
+The [Application Cache API](http://www.w3.org/TR/html5/browsers.html#offline) (or *AppCache*) was introduced in the [HTML5 spec](http://www.w3.org/TR/html5/browsers.html#application-cache-api), allowing you to create offline web applications.
 
 AppCache enables webpages to *cache* (or save) resources locally, including images, script libraries, style sheets, and so on. AppCache also allows URLs to be served from cached content using standard Uniform Resource Identifier (URI) notation.
 
@@ -12,6 +12,18 @@ To cache resources locally:
 
 1. Create a [manifest file](http://go.microsoft.com/fwlink/p/?LinkId=228543) that defines the resources you want to save.
 2. Reference the manifest file in each webpage designed to use cached resources.
+
+## New in Microsoft Edge
+Microsoft Edge brings a number of improvements to the Application Cache API, including:
+* **Removal of soft limits**: Application Cache will not request user authorization to use more than 10 megabytes of space.
+* **Changes to default hard limits**: Application Cache limits are removed from Windows Store apps using JavaScript. Additionally, Microsoft Edge now considers the volume size in determining the per-domain and per-total limit on how much disk space can be used. The table below applies to both phone and desktop versions of Microsoft Edge.
+
+Volume size | Per domain | Total limit
+:---------- | :---------- | :-----------
+Less than or equal to 8 GB | 10 MB | 50 MB
+More than 8 GB up to 32 GB | 50 MB | 500 MB
+More than 32 GB up to 128 GB | 50 MB | 1 GB
+More than 128 GB | 100 MB | 2 GB
 
 
 ## The manifest file
@@ -46,9 +58,9 @@ Manifest files are divided into three sections:
 
 Section | Description
 :------- | :-------
-`CACHE`| Defines resources that will be stored locally. </br>In the example above, three files are cached.
-`FALLBACK` | Defines resources to be used when other resources are not available. </br>The example above defines `figure2.png` as a fallback image for the `photos/` folder. </br>If the browser cannot access images in the photos folder (because the browser is offline or because the server cannot be reached), figure2.png will replace the unavailable images in the rendered markup. As a result, `figure2.png` will be cached locally.
-`NETWORK` | Specifies resources to be accessed when there is a network connection. </br>Resources in this section are not cached.</br> This section allows the use of the wildcard (\*) character to indicate that all other resources should not be cached.
+`CACHE`| Defines resources that will be stored locally. In the example above, three files are cached.
+`FALLBACK` | Defines resources to be used when other resources are not available. The example above defines `figure2.png` as a fallback image for the `photos/` folder. If the browser cannot access images in the photos folder (because the browser is offline or because the server cannot be reached), figure2.png will replace the unavailable images in the rendered markup. As a result, `figure2.png` will be cached locally.
+`NETWORK` | Specifies resources to be accessed when there is a network connection. Resources in this section are not cached. This section allows the use of the wildcard (\*) character to indicate that all other resources should not be cached.
 
 Manifest files can contain any number of these sections, and sections can be repeated; however, new sections must begin with the section header followed by a colon, as shown in the previous example. If no section header is provided, the `CACHE:` header is presumed. The following example shows a simplified manifest.
 ```html
@@ -89,7 +101,7 @@ In this example, the webpage declares "appcache.manifest" as the manifest file. 
 
 > NOTE: File references in the manifest are interpreted with respect to the location of the manifest file, not the webpage that declares it.
 
- 
+
 
 It's not necessary for the manifest to include the name of the webpage declaring the manifest; webpages that declare manifests are cached automatically.
 
@@ -103,7 +115,7 @@ The [`ApplicationCache`](http://go.microsoft.com/fwlink/p/?LinkId=228546) object
 
 > NOTE: The updated cache is not used by the webpage until it is reloaded, either manually by the user or programmatically using the [reload](http://go.microsoft.com/fwlink/p/?LinkId=228553) method of the [window.location](http://go.microsoft.com/fwlink/p/?LinkId=228554) object.
 
- 
+
 
 The [`ApplicationCache`](http://go.microsoft.com/fwlink/p/?LinkId=228546) object supports the following events:
 
@@ -128,31 +140,31 @@ The following example shows how you can use the [`applicationCache`](http://go.m
 
 ```html
 var sCacheStatus = "Not supported";
-if (window.applicationCache) 
+if (window.applicationCache)
 {
    var oAppCache = window.applicationCache;
-   switch ( oAppCache.status ) 
+   switch ( oAppCache.status )
    {
-      case oAppCache.UNCACHED : 
-         sCacheStatus = "Not cached"; 
+      case oAppCache.UNCACHED :
+         sCacheStatus = "Not cached";
          break;
-      case oAppCache.IDLE : 
-         sCacheStatus = "Idle"; 
+      case oAppCache.IDLE :
+         sCacheStatus = "Idle";
          break;
-      case oAppCache.CHECKING : 
-         sCacheStatus = "Checking"; 
+      case oAppCache.CHECKING :
+         sCacheStatus = "Checking";
          break;
-      case oAppCache.DOWNLOADING : 
-         sCacheStatus = "Downloading"; 
+      case oAppCache.DOWNLOADING :
+         sCacheStatus = "Downloading";
          break;
-      case oAppCache.UPDATEREADY : 
-         sCacheStatus = "Update ready"; 
+      case oAppCache.UPDATEREADY :
+         sCacheStatus = "Update ready";
          break;
-      case oAppCache.OBSOLETE : 
-         sCacheStatus = "Obsolete"; 
+      case oAppCache.OBSOLETE :
+         sCacheStatus = "Obsolete";
          break;
-      default : 
-        sCacheStatus = "Unexpected Status ( " + 
+      default :
+        sCacheStatus = "Unexpected Status ( " +
                        oAppCache.status.toString() + ")";
         break;
    }

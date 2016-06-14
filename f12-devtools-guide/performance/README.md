@@ -16,7 +16,7 @@
 
 もしレポート中で正確なページのロード時間を知りたい場合は、[**Network tool**](../network/)を開いて**clear browser cache**オプションをプロファイリングの前に実行してください。
 
-**Performance**ツールは[**DOMContentLoaded**](https://msdn.microsoft.com/en-us/library/hh869434.aspx)のような**アプリ ライフサイクル イベント**を自動的にマークします。コードからは[`performance.mark()`](https://msdn.microsoft.com/en-us/library/jj585593.aspx)メソッドを使うことでカスタムの**ユーザー マーク**をセットできます。
+**Performance**ツールは[**DOMContentLoaded**](https://msdn.microsoft.com/library/hh869434.aspx)のような**アプリ ライフサイクル イベント**を自動的にマークします。コードからは[`performance.mark()`](https://msdn.microsoft.com/library/jj585593.aspx)メソッドを使うことでカスタムの**ユーザー マーク**をセットできます。
 
 プロファイルしたい挙動をキャプチャーできたら、**stop profiling to generate a report**またはツールの上部の四角アイコンをクリックしてください。
 
@@ -32,9 +32,8 @@
 
 ユーザー マークには`performance.mark()`メソッドの引数の文字列をラベルとして付けることができます。
 
-**ユーザー マーク**は[`performance.measure()`](https://msdn.microsoft.com/en-us/library/jj585594.aspx) APIでもっと便利になります。**ユーザー マーク**をセットしたのち、2つのマークの間で発生したイベントをグループ化するために**user measure**をセットできます。例えば、もし"Begin Rotation"と"End Rotation"という二つの**ユーザー マーク**がある場合、次のコードでそれらを"box cycler"というラベルでグループ化できます。
+**ユーザー マーク**は[`performance.measure()`](https://msdn.microsoft.com/library/jj585594.aspx) APIでもっと便利になります。**ユーザー マーク**をセットしたのち、2つのマークの間で発生したイベントをグループ化するために**user measure**をセットできます。例えば、もし"Begin Rotation"と"End Rotation"という二つの**ユーザー マーク**がある場合、次のコードでそれらを"box cycler"というラベルでグループ化できます。
 
-###### *JavaScript*
 ```javascript
 performance.measure("box cycler","Begin Rotation","End Rotation");
 ```
@@ -89,7 +88,7 @@ Each element in the **Timeline details** shows different info, depending on its 
 
 ![Edge F12 Tools Performance Timer Details](../media/F12BlueResponsivenessTimerDetails.png)
 
-This timer was invoked by a [`setTimeout()`](https://msdn.microsoft.com/en-us/library/ms536753.aspx) which called the **autoNextSlide** function in **script.jsx**. When you click the file name, it opens in the [**Debugger tool**](../debugger/) and navigates to the function for inspection.
+This timer was invoked by a [`setTimeout()`](https://msdn.microsoft.com/library/ms536753.aspx) which called the **autoNextSlide** function in **script.jsx**. When you click the file name, it opens in the [**Debugger tool**](../debugger/) and navigates to the function for inspection.
 
 The circular chart at the bottom shows that while **Scripting** made up a large part of the event's time, **Styling** took up a fair portion. Expanding the timer's event in the **Timeline details** shows more about the different **Styling** operations that contributed to the time it required.
 
@@ -108,11 +107,11 @@ The Responsiveness tool uses 7 main event categories on the timeline. These brea
 
   - **Scripting** contains events related to processing and executing JavaScript. These events are gathered within **Scripting**:
     - **Animation frame callback**: A new frame was being prepared and a registered callback was triggered so that it could contribute any visual changes. Details include the location of the callback within the webpage or external scripts.
-    - **DOM event**: A [**DOM event**](https://msdn.microsoft.com/en-us/library/hh771866.aspx) was fired. Event listeners attached to it are shown as children of the event.
+    - **DOM event**: A [**DOM event**](https://msdn.microsoft.com/library/hh771866.aspx) was fired. Event listeners attached to it are shown as children of the event.
     - **Script evaluation**: Processing content within `<script>` elements. Details include the URL of the script or **inline** if it's part of the webpage.
-    - **Timer**: An [interval](https://msdn.microsoft.com/en-us/library/ms536749.aspx) or [timeout](https://msdn.microsoft.com/en-us/library/ms536753.aspx) completed and triggered execution of its callback. The details include the location of the timer within the webpage or external scripts, the time it took, and the name of its callback function (if any). Actions triggered by the callback are shown as children of the event.
-    - [**Media query listener**](https://msdn.microsoft.com/en-us/library/hh772369.aspx): When script that responds to a media query event runs, this is broken out as its own category.
-    - [**Mutation observer**](https://msdn.microsoft.com/en-us/library/dn265034.aspx): Script responding to events fired by mutation observers is broken out as a category.
+    - **Timer**: An [interval](https://msdn.microsoft.com/library/ms536749.aspx) or [timeout](https://msdn.microsoft.com/library/ms536753.aspx) completed and triggered execution of its callback. The details include the location of the timer within the webpage or external scripts, the time it took, and the name of its callback function (if any). Actions triggered by the callback are shown as children of the event.
+    - [**Media query listener**](https://msdn.microsoft.com/library/hh772369.aspx): When script that responds to a media query event runs, this is broken out as its own category.
+    - [**Mutation observer**](https://msdn.microsoft.com/library/dn265034.aspx): Script responding to events fired by mutation observers is broken out as a category.
 
 When a change is explicitly made to a style object via JavaScript (i.e. `element.style.height="20px"`), requiring the DOM to be updated, the individual changes and their exclusive times are shown as descendants of the Scripting event that caused them.
 
@@ -149,7 +148,7 @@ The image above shows the initial load of the Microsoft homepage, a little navig
 ## Performance profiling tips
 **Test more than once**: The results you'll see in a profiling report are not just based on your code. They're influenced by other processes on your system competing for your processor and memory. A moment of slowness or a bad overall test might be due to a virus scan running in the background or too many tabs being open on your browser. Alternatively, if you test on a new machine under laboratory conditions, it might be so fast, your code just runs great. It's important to make sure you can reproduce slowness reliably, just like reproducing a bug. Then you can diagnose the cause.
 
-**Consistency feels faster**: The **Performance** profiler's visual map of your frame rate over time can be very useful. Uneven frame rates or skipped frames can make your site feel slow. If it reduces skips and helps keep the frame rate consistent, slowing down your animation could make it feel faster. ["The secret to silky smooth JavaScript animations"](http://creativejs.com/resources/requestanimationframe/) provides a couple of suggestions for reducing frame rate while getting the power-saving and anti-skipping benefits of using [`window.requestAnimationFrame()`](https://msdn.microsoft.com/en-us/library/hh773174.aspx).
+**Consistency feels faster**: The **Performance** profiler's visual map of your frame rate over time can be very useful. Uneven frame rates or skipped frames can make your site feel slow. If it reduces skips and helps keep the frame rate consistent, slowing down your animation could make it feel faster. ["The secret to silky smooth JavaScript animations"](http://creativejs.com/resources/requestanimationframe/) provides a couple of suggestions for reducing frame rate while getting the power-saving and anti-skipping benefits of using [`window.requestAnimationFrame()`](https://msdn.microsoft.com/library/hh773174.aspx).
 
 **How much of this CSS is necessary?** Many sites use a site-wide style sheet to make pages load faster. It can reduce the number of network requests and take advantage of caching on subsequent loads. However, every style in a style sheet must be parsed and adds to the complexity of **Styling** calculations whether the style is used in the page or not.
 
@@ -161,4 +160,6 @@ At this point, the question to ask is: is the cost of the unused styles bigger t
 
 [Improving animation performance with the Performance tool](http://samples.msdn.microsoft.com/workshop/samples/UIPerformance/default.html)
 
-[The Performance tool in Visual Studio](https://msdn.microsoft.com/en-us/library/dn194502.aspx)
+[The Performance tool in Visual Studio](https://msdn.microsoft.com/library/dn194502.aspx)
+
+[Microsoft Edge Developer Tools on Twitter: Find helpful F12 hints and news updates](https://twitter.com/EdgeDevTools)

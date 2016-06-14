@@ -1,5 +1,22 @@
-# Microsoft Edge documentation
+# Microsoft Edge documentation (ja)
 
+## Translated
+- [apireference: Microsoft Edge API](apireference/README.md)
+- [dev-guide: Microsoft Edge 開発者ガイド](dev-guide/README.md)
+    - [device: デバイス機能](dev-guide/device/README.md)
+- [extensions: Microsoft Edge 拡張](extensions/README.md)
+    - [adding-and-removing-extensions: プレビュービルドのMicrosoft Edgeで拡張を追加または削除する](extensions/adding-and-removing-extensions/README.md)
+    - [extension-API-roadmap: Microsoft Edge 拡張 API ロードマップ](extensions/extension-API-roadmap/README.md)
+    - [troubleshooting: トラブルシューティング](extensions/troubleshooting/README.md)
+- [f12-devtools-guide: Microsoft Edge開発者ツールに触れる](f12-devtools-guide/README.md)
+    - [console: コンソールツール](f12-devtools-guide/console/README.md)
+        - [using-the-console-api: コンソールAPIを使う](f12-devtools-guide/console/using-the-console-api/README.md)
+    - debugger
+        - [edit-css-in-debugger: デバッガーでCSSを編集する](f12-devtools-guide/debugger/edit-css-in-debugger/README.md)
+    - [experiments: F12試験的機能](f12-devtools-guide/experiments/README.md)
+    - [performance: パフォーマンス(WIP)](f12-devtools-guide/performance/README.md)
+
+# README.md
 This is the repository for Microsoft Edge **documentation** hosted at [https://dev.windows.com/en-us/microsoft-edge/platform/documentation/](https://dev.windows.com/en-us/microsoft-edge/platform/documentation/).
 
 Over the coming months, we will add new sections and content to enhance the documentation experience. If you would like to see new coverage or have feedback, please consider [**contributing**](/CONTRIBUTING.md).  You can edit the existing content, add new content, or simply create new [issues](https://github.com/MicrosoftEdge/MicrosoftEdge-Documentation/issues). We’ll take a look at your suggestions and will work together to incorporate them into the docs. 

@@ -1,18 +1,18 @@
-# Folder upload
+# フォルダーアップロード
 
-Microsoft Edge supports uploading files, folders, and combinations of files and folders using APIs that are interoperable with Chrome.
+Microsoft Edgeはファイルやフォルダー、ファイルとフォルダーの組み合わせのアップロードをChromeと互換性のあるAPIを使うことでサポートしています。
 
 | API | Description |
 | --- | ----------- |
-| DataTransferItem.[webkitGetAsEntry](https://msdn.microsoft.com/library/mt709130) method | Returns the `WebKitEntry` object (a file or directory) corresponding to the `DataTransferItem`. |
-| [WebKitEntry](https://msdn.microsoft.com/library/mt732557) interface | Represents a file or directory. (Use the `isDirectory` and `isFile` properties to determine what it is.) |
-| [WebKitDirectoryReader](https://msdn.microsoft.com/library/mt732554) interface | Provides the `readEntries` method to traverse the files in the given directory. |
-| [WebKitFileSystem](https://msdn.microsoft.com/library/mt732564) interface | Provides an interface to the (sandboxed) file system for the upload. You can use the `filesystem` property of a `WebKitEntry` object to get the globally unique name and the root folder of the file system being used for the drag and drop (or file/folder picker) operation. Current support is scoped to drag-and-drop scenarios via `webkitGetAsEntry` (and not file/folder picker). |
+| DataTransferItem.[webkitGetAsEntry](https://msdn.microsoft.com/library/mt709130) メソッド | `DataTransferItem` に対する `WebKitEntry` オブジェクト (ファイルまたはディレクトリー) を返します。 |
+| [WebKitEntry](https://msdn.microsoft.com/library/mt732557) インターフェース | ファイルまたはディレクトリを表します。(`isDirectory` と `isFile` プロパティを使うことで判別できます) |
+| [WebKitDirectoryReader](https://msdn.microsoft.com/library/mt732554) インターフェース | 指定されたディレクトリーに含まれているファイルを走査する `readEntries` メソッドを提供します。 |
+| [WebKitFileSystem](https://msdn.microsoft.com/library/mt732564) インターフェース | アップロードのために(サンドボックス化済み)ファイルシステムへのインターフェースを提供します。`WebKitEntry` オブジェクトの `filesystem` プロパティを使うことでドラッグアンドドロップ(または ファイル/フォルダー選択)操作で利用するグローバルにユニークな名前とファイルシステムのルートフォルダーを取得できます。 |
 
-## Example
+## 例
 
-This snippet demonstrates how to differentiate between the files and folders of an item
 that's been selected for upload.
+このコードの断片はアップロードのために選択したファイルとフォルダーのアイテムの区別の付け方のサンプルです。
 
 ![codepen](https://codepen.io/MicrosoftEdgeDocumentation/pen/wWwBqa?editors=1010)
 

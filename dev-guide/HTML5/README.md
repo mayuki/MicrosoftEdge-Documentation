@@ -1,23 +1,23 @@
-# HTML5 features
+# HTML5 機能
 
-## Audio
-You can use the [HTML5 audio](./audio) element to embed simple sound effects, background audio, or more sophisticated audio engines to your webpage without requiring script or add-on controls.
+## オーディオ
+[HTML5 audio](./audio)要素を利用することで単純な効果音や背景音、もっと凝ったオーディオエンジンをWebページにスクリプトもアドオンコントロールもなしに埋め込めます。
 
 ## File API
-The [File  API](./file-API) provides a means to manipulate file objects in web applications.
+[File  API](./file-API)はWebアプリケーションでファイルを操作する方法を提供します。
 
-## Folder upload
+## フォルダーアップロード
 
-Microsoft Edge supports [drag and drop with folders](./folder-upload) using the same API (webkitGetAsEntry) as [Chrome](https://developers.google.com/web/updates/2012/07/Drag-and-drop-a-folder-onto-Chrome-now-available).
+Microsoft Edgeは[Chrome](https://developers.google.com/web/updates/2012/07/Drag-and-drop-a-folder-onto-Chrome-now-available)と同様のAPI (webkitGetAsEntry)を使った[フォルダーのドラッグアンドドロップ](./folder-upload)をサポートしています。
 
-## Newly supported elements and attributes
-Check out the latest [HTML5 elements and attributes](./newly-supported-elements-and-attributes) supported in Microsoft Edge.
+## 新たにサポートされた要素と属性
+Microsoft Edgeでサポートされている最新の[HTML5 要素と属性](./newly-supported-elements-and-attributes)をチェックしてください。
 
 ## Sandbox
-The  [sandbox](./sandbox)  attribute enables security restrictions for iframe elements that contain untrusted content. These restrictions enhance security by preventing untrusted content from performing actions that can lead to potentially malicious behavior.
+[sandbox](./sandbox) 属性は信頼できないコンテンツを持つiframe要素にセキュリティ制限を有効にできます。制限は信頼できないコンテンツの動作が潜在的な害のある振る舞いとなるのを防ぐことでセキュリティを向上します。
 
 ## Selection API
-The  [selection](./selection-API) object represents the active selection, which is typically a highlighted block of text or other elements in the document. The active selection can be used to complete an action issued by a user or a script.
+[selection](./selection-API) オブジェクトは現在選択されている、大抵はドキュメント中でハイライトされているテキストのブロックやそれ以外の要素といったものを表します。アクティブな選択はユーザーまたはスクリプトによるアクションを完了させるために利用されます。
 
-## Video
-Using [HTML5 video](./video) you can embed a full featured video player on your webpage without requiring a third-party plug-in or JavaScript.
+## ビデオ
+[HTML5 ビデオ](./video)を使うことでサードパーティープラグインやJavaScriptを必要とすることなしにフル機能のビデオプレーヤーをWebページに組み込めます。

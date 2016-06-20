@@ -7,6 +7,7 @@
     - [HTML5: HTML5 機能](dev-guide/HTML5/README.md)
         - [folder-upload: フォルダーアップロード](dev-guide/HTML5/folder-upload/README.md)
 - [extensions: Microsoft Edge 拡張](extensions/README.md)
+    - [accessibility: アクセシビリティー](extensions/accessibility/README.md)
     - [adding-and-removing-extensions: プレビュービルドのMicrosoft Edgeで拡張を追加または削除する](extensions/adding-and-removing-extensions/README.md)
     - [extension-API-roadmap: Microsoft Edge 拡張 API ロードマップ](extensions/extension-API-roadmap/README.md)
     - [troubleshooting: トラブルシューティング](extensions/troubleshooting/README.md)

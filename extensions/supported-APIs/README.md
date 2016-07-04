@@ -1,8 +1,13 @@
 #  Supported APIs
 
-The following is a detailed list of API members that are supported as of build 14316. Development of the extension platform is ongoing, so check back frequently for updates!
+The following is a detailed list of API members that are supported. Development of the extension platform is ongoing, so check back frequently for updates!
 
-> NOTE: Extensions won't work with `window.open` popups.
+## Overarching issues
+
+The following known issues span across the extension platform and will be fixed in the near future:
+
+- Regardless of any `catch()` statements, exceptions thown in the content script context by predefined JavaScript methods (such as `document.querySelector()`) will be dispatched to both the content script's and page's `window.onerror` handlers.
+- When using the CSS `url()` property, absolute urls using `ms-browser-extension://` will not work like they do in Chrome. To bypass this issue, use relative paths to resources (starting in the root extension directory) instead.
 
 ## browserAction
 
@@ -10,13 +15,13 @@ The following `browserAction` API are supported:
 
 | API                                   | Known issues                                             | Chrome incompatibilities
 |---------------------------------------|----------------------------------------------------------|--------------------------|
-| [browserAction](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) | The `default_title` attribute is not optional for `browserAction`.  The `default_icon` attribute is not optional for `browserAction`.| |
+| [browserAction](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction) | | |
 | [browserAction.disable](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/disable) | | |
 | [browserAction.enable](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/enable) | | |
 | [browserAction.getBadgeBackgroundColor](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeBackgroundColor) |  | |
 | [browserAction.setBadgeBackgroundColor](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeBackgroundColor) | | |
 | [browserAction.onClicked](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/onClicked) | | |
-| [browserAction.setBadgeText](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeText)            | `browserAction.setBadgetText` does not clear on navigate within the same tab.   `browserAction.setBadgeText` renders incorrectly for icons in the More (...) menu. | |
+| [browserAction.setBadgeText](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeText)            | | |
 | [browserAction.getBadgeText](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeText)   | | |
 | [browserAction.setIcon](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setIcon) | `browserAction.setIcon` is not persisted. | |
 
@@ -27,7 +32,7 @@ The following `contextMenus` API are supported:
 | API                    | Known issues | Chrome incompatibilities
 |------------------------|--------------|----------------------|
 | [contextMenus](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextMenus)  |  | |
-| [contextMenus.ContextType]() | `"page_action"` `ContextType` will not show up in the page action context menu.| Microsoft Edge does not support the `"launcher"` `ContextType`.|
+| [contextMenus.ContextType](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/contextMenus/ContextType) | `"page_action"` `ContextType` will not show up in the page action context menu.| Microsoft Edge does not support the `"launcher"` `ContextType`.|
 | [contextMenus.create](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextMenus/create)    | When extensions do not provide a `contextmenuid`, the `id` generated is not unique. | |
 | [contextMenus.onClicked](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextMenus/onClicked) | | |
 | [contextMenus.remove](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextMenus/remove) | | |
@@ -58,7 +63,7 @@ The following `extension` API are supported:
 |---------------------------------------|----------------------------------------------------------|-------------|
 [extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension) | | |
 [extension.getBackgroundPage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/getBackgroundPage) | | |
-[extension.getURL](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/getURL) | `extension.getURL` is available in the background script but not the content script. | |
+[extension.getURL](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/getURL) | | |
 
 
 ## i18n
@@ -69,7 +74,7 @@ API | Known issues | Chrome incompatibilities
 :------| :-------- | :---------------------
 [i18n](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n) | | |
 [i18n.getAcceptLanguages](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getAcceptLanguages) | | |
-[i18n.getMessage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n/detectLanguage) | `i18n.getMessage` with invalid key throws exception instead of failing gracefully.   `i18n.getMessage` argument expects strings, but should also allow an int or thow an exception. | |
+[i18n.getMessage](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/i18n/getMessage) | `i18n.getMessage` with invalid key throws exception instead of failing gracefully.   `i18n.getMessage` argument expects strings, but should also allow an int or thow an exception. | |
 [i18n.getUILanguage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getUILanguage) | | |
 
 
@@ -84,8 +89,8 @@ API | Known issues | Chrome incompatibilities
 [pageAction.getTitle](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/getTitle) | | |
 [pageAction.hide](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/hide) | | |
 [pageAction.onClicked](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/onClicked) | | | 
-[pageAction.setIcon](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/setIcon) | String format is not supported.  | `ImageData` is not supported. |
-[pageAction.setPopup](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/setPopup) | `pageAction.setPopup` doesn't work. | |
+[pageAction.setIcon](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/setIcon) | | `ImageData` is not supported. |
+[pageAction.setPopup](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/setPopup) | | |
 [pageAction.setTitle](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/setTitle) | | |
 [pageAction.show](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pageAction/show) | | |
 
@@ -114,11 +119,11 @@ The following `storage` API are supported:
 API | Known issues | Chrome incompatibilities
 :------------ | :------------- | :------------------------
 [storage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage) |  | |
-[storage.local.get](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/local)  | | |
-[storage.local.set](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/local)  |`storage` has a 1MB limit per value. |  |
-storage.local.remove  | | |
-storage.local.clear | | |
-storage.local.getBytesInUse | | `storage.local` data is persisted in a different format than Chrome, causing a different value to be returned when calling `storage.local.getBytesInUse`.  Ex: storage.local.set({ "k": { "s": "âas" } } Returns 13 in Chrome and 50 in Microsoft Edge.|
+[storage.local.get](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/Storage/StorageArea/get)  | | |
+[storage.local.set](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/Storage/StorageArea/set)  | | `storage` has a 1MB limit per value. |
+[storage.local.remove](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/Storage/StorageArea/remove)  | | |
+[storage.local.clear](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/Storage/StorageArea/clear) | | |
+[storage.local.getBytesInUse](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/Storage/StorageArea/getBytesInUse) | | `storage.local` data is persisted in a different format than Chrome, causing a different value to be returned when calling `storage.local.getBytesInUse`.  Ex: storage.local.set({ "k": { "s": "âas" } } Returns 13 in Chrome and 50 in Microsoft Edge.|
 [storage.onChanged](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/onChanged) | | |
 
 ## tabs
@@ -132,7 +137,7 @@ API | Known issues | Chrome incompatibilities
 [tabs.detectLanguage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/detectLanguage) | | |
 [tabs.executeScript](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/executeScript) | `runAt` is ignored, though checked.| |
 [tabs.get](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/get) | Options pages, when asking about a tab not in their window, fail this call. | |
-[tabs.getCurrent](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/getCurrent) | `tabs.getCurrent` doesn't return when used on the option page. | |
+[tabs.getCurrent](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/getCurrent) | | |
 [tabs.insertCSS](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS) | `runAt` is ignored, though checked. | |
 [tabs.onActivated](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onActivated) | | |
 [tabs.onCreated](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onCreated) | | |
@@ -155,13 +160,13 @@ API | Known issues | Chrome incompatibilities
 [webNavigation.getAllFrames](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/getAllFrames) | Does not include object-as-iframe elements. | |
 [webNavigation.getFrame](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/getFrame) | | |
 [webNavigation.onBeforeNavigate](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onBeforeNavigate) | | |
-[webNavigation.onCommited](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onBeforeNavigate) | | |
+[webNavigation.onCommited](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/webNavigation/onCommitted) | | |
 [webNavigation.onCompleted](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onCompleted) | | |
-[webNavigation.onCreatedNavigationTarget](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onCreatedNavigationTarget) | Event does not fire.| |
+[webNavigation.onCreatedNavigationTarget](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onCreatedNavigationTarget) | | |
 [webNavigation.onDOMContentLoaded](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onDOMContentLoaded) | | |
 [webNavigation.onErrorOccurred](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onErrorOccurred) | | |
 [webNavigation.onHistoryStateUpdated](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onHistoryStateUpdated) | | |
-[webNavigation.onReferenceFragmentUpdated](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onHistoryStateUpdated) | | |
+[webNavigation.onReferenceFragmentUpdated](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/webNavigation/onReferenceFragmentUpdated) | | |
 [webNavigation.onTabReplaced](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/onTabReplaced) | | Not supported. | |
 [webNavigation.TransitionType](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/TransitionType) | | |
 [webNavigation.TransitionQualifier](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation/TransitionQualifier) | | |
@@ -172,7 +177,7 @@ The following `webRequest` API are supported:
 
 API | Known issues | Chrome incompatibilities
 :------ | :----- | :-------
-[webRequest]() | `webRequest` not supported for synchronous `XmlHttpRequests`. | Network requests from extensions, such as options, background or popup pages, are not supported. Network requests from `<object>` and `<embed>` elements are not supported.   Headers cannot be modified for cached requests.  |
+[webRequest](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/webRequest) | `webRequest` not supported for synchronous `XmlHttpRequests`. | Network requests from extensions, such as options, background or popup pages, are not supported. Network requests from `<object>` and `<embed>` elements are not supported.   Headers cannot be modified for cached requests.  |
 [handlerBehaviorChanged](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/webRequest/handlerBehaviorChanged) | | Handler changes are automatically handled in Microsoft Edge. Calling this has no effect.  |
 [onAuthRequired](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/webRequest/onAuthRequired) | | |
 [onBeforeRedirect](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/webRequest/onBeforeRedirect) | | |
@@ -190,8 +195,9 @@ The following `windows` API are supported:
 
 API | Known issues | Chrome incompatibilities
 :------------ | :------------- | :-------------------
-[windows](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows) | InPrivate is not supported. | `Window` objects do not support `alwaysOnTop` property in Microsoft Edge.|
-[windows.CreateType]() | | `"panel"` and `"detached_panel"` are not supported in Microsoft Edge. |
+[windows](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows) | | `Window` objects do not support `alwaysOnTop` property in Microsoft Edge. InPrivate is not supported.|
+[windows.CreateType](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/windows/CreateType) | | `"panel"` and `"detached_panel"` are not supported in Microsoft Edge. |
+[windows.create](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/windows/create) | | |
 [windows.get](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/get) | | |
 [windows.getAll](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/getAll) | `window.getAll({populate: true})` is missing `tabs` property. | | |
 [windows.getCurrent](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/getCurrent) | | |
@@ -199,7 +205,7 @@ API | Known issues | Chrome incompatibilities
 [windows.update](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/update) | Specifying position is not supported. | `"minimized"`/`"maximized"`/`"fullscreen"` and `drawAttention` are not supported in Microsoft Edge. |
 [windows.onCreated](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/onCreated) | | `WindowType` filter is not supported. |
 [windows.onFocusChanged](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/windows/onFocusChanged) | | `WindowType` filter is not supported. |
-[windows.WindowState]() | `"minimized"`,`"maximized"`, `"fullscreen"` are not supported.| `"docked"` is not supported in Microsoft Edge. | 
-[windows.WindowType]() | | `"panel"`, `"app"`, and `"devtools"` are not supported in Microsoft Edge. |
+[windows.WindowState](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/windows/WindowState) | `"minimized"`,`"maximized"`, `"fullscreen"` are not supported.| `"docked"` is not supported in Microsoft Edge. | 
+[windows.WindowType](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/windows/WindowType) | | `"panel"`, `"app"`, and `"devtools"` are not supported in Microsoft Edge. |
 [windows.WINDOW_ID_CURRENT](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/WINDOW_ID_CURRENT) | | |
 [windows.WINDOW_ID_NONE](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/WINDOW_ID_NONE) | | |

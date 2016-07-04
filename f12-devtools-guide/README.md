@@ -72,35 +72,35 @@ DOM Explorerツールに含まれている**特徴**:
   -
 [デバッガーツールについてもっと詳しく](./debugger/) 
 
-## The Network tool (CTRL+4)
+## ネットワーク ツール (CTRL+4)
 ![Edge Network Tool](./media/Edge_Network_details.png)
 
-The [Network tool](./network/) gives you the fine details of any network requests involved in the loading and operation of your webpages.
+[ネットワーク ツール](./network/)はWebページの読み込みと実行するのに必要となるネットワークリクエストの詳細をわかりやすく表示します。
 
-**Development and debugging tasks it makes easier:**
-  - Viewing the amount of bandwidth your page consumes across resources.
-  - Debugging AJAX requests by viewing request and response headers and bodies.
-  - Identifying network requests that slow the loading of your webpages.
+**開発とデバッグタスクをもっと簡単に:**
+  - ページがリソースを通して消費している帯域の表示
+  - AJAX リクエストのリクエスト、レスポンスヘッダーとボディーを表示してのデバッグ
+  - Webページの読み込みで低速なネットワークリクエストの判別
 
-[Learn more about the Network tool.](./network/)
+[ネットワーク ツールについてもっと詳しく](./network/)
 
-## The Performance Tool (CTRL+5)
+## パフォーマンス ツール (CTRL+5)
 ![Edge Performance Tool](./media/Edge_Performance.png)
 
-The [Performance tool](./performance/) helps you dig into what is happening when your page slows down. Using it to profile specific points of slowness shows the operations that are causing them. In Microsoft Edge, the Performance tool combines the previous **UI Responsiveness** and **Profiler** tools to create an end-to-end view of your scripting and painting performance.
+[パフォーマンス ツール](./performance/)はページが遅くなっているとき、何が発生しているのかを調査するのを手助けします。このツールを使うことで遅くなっている特定箇所をプロファイリングし、何の操作がそれらを引き起こしているかを示します。Microsoft Edgeにおいて、パフォーマンス ツールは以前の **UI Responsiveness** と **Profiler** ツールを組み合わせて、スクリプトと描画パフォーマンスの端から端までの表示をできるようにしました。
 
-Some interesting features are:
+さまざまな興味深い機能:
 
-  - Identifying the different sources of CPU activity causing UI slowness.
-  - Insight into your webpage's frame rate and how much repaints and reflows cost.
-  - Setting labels on the timeline to isolate user scenarios.
+  - UI のスローダウンを引き起こす CPU の使用状況の様々なソースの判別
+  - Webページのフレームレートと再描画とリフローのコストの理解
+  - ユーザーシナリオごとのタイムラインにラベルを設定
 
-**Development and debugging tasks it makes easier:**
+**開発とデバッグタスクをもっと簡単に:**
 
-  - Testing code optimizations.
-  - Speeding up your webpages.
+  - コードの最適化のテスト
+  - Webページのスピードアップ
 
-[Learn more about the Performance tool.](./performance/) 
+[パフォーマンス ツールについてもっと詳しく](./performance/) 
 
 ## The Memory tool (CTRL+6)
 ![Edge Memory Tool](./media/Edge_Memory.png)

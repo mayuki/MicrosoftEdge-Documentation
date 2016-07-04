@@ -9,6 +9,6 @@
  ![Saving edited CSS files with Edge Debugger](../../media/Edge_Debugger_css_save.png)
 
 ## デバッガーでSassファイルを編集する
-![Editing CSS files with Edge Debugger](../../media/Edge_Debugger_css_editing.gif)
+![video](../../media/Edge_Debugger_css_editing.mp4,../../media/Edge_Debugger_css_editing.webm)
 
 

@@ -6,7 +6,7 @@ F12 試験的機能はF12の上部にあるナビゲーションバーの最後�
 
 この試験的機能を有効にするとデバッガーのソースビューアーでJavaScriptファイルを変更できます。ビューアーをクリックしてカーソルを合わせて文字を打つだけです。
 
-![Edge Experiment Tab](../media/Edge_Experiments_edit.gif)
+![video](../media/Edge_Experiments_edit.mp4,../media/Edge_Experiments_edit.webm)
 
 変更を加えるとダーティーフラグに気づくと思います。ドキュメントのタブの**アスタリスク (*)**はドキュメントが変更されているもののまだ保存されていないということを示しています。
 

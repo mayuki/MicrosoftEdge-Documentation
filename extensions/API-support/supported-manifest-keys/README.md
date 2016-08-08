@@ -4,7 +4,7 @@ Every extension has a JSON-formatted manifest file, named manifest.json. This fi
 
 See example of a [Microsoft Edge JSON manifest file](json-manifest-example/).
 
-The following is the list of JSON manifest keys that are supported as of build 14316:
+The following is the list of JSON manifest keys that are currently supported:
 
 ## Required keys
 
@@ -20,7 +20,7 @@ author  | | Specifies the author. Not supported in Chrome.
 
 The following keys are recommended:
 
-Key | Known issues | Chrome incompatibilities 
+Key | Known issues | Chrome incompatibilities
 :------------ | :------------- | :--------------
 [description](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/description) | | |
 [manifest_version](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/manifest_version) | | Currently ignored in Microsoft Edge.
@@ -47,6 +47,7 @@ options_page | | |
 [permissions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)  | | |
 short_name  | | |
 [web_accessible_resources](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) | | |
+[content_security_policy](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/content_security_policy)  | The content security policy of a page blocks websockets in content scripts, generating an undefined exception. | Microsoft Edge extensions currently only support [Default Policy Restrictions](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_Security_Policy#Default_content_security_policy): `script-src 'self'; object-src 'self'` |
 
 ### Supported permissions
 The following permissions are supported as of build 14316:
@@ -58,9 +59,8 @@ contextMenus | Gives access to `contextMenus` API. This enables adding items to 
 cookies | Gives access to the `cookies` API. This enable querying and modifying cookies as well as being notified when they change.
 geolocation | Allow the extension to use the HTML5 `geolocation` API without prompting the user for permission.
 idle | Gives access to the `idle` API. This enables detection of when the machine's idle state changes.
-storage | Gives access to the `storage` API. This enables storing, retrieving, and tracking changes to user data. 
-tabs | Gives access to the `tabs` API to interact with the browser's tab system. This enables creating, modifying, and rearranging tabs in the browser, including the URLs associated with each tab. 
+storage | Gives access to the `storage` API. This enables storing, retrieving, and tracking changes to user data.
+tabs | Gives access to the `tabs` API to interact with the browser's tab system. This enables creating, modifying, and rearranging tabs in the browser, including the URLs associated with each tab.
 webNavigation | Gives access to the `webNavigation` API. This enables receiving notifications about the status of navigation requests.
 webRequest | Gives access to the `webRequest` API. This enables observing and analyzing traffic, as well as intercepting, blocking or modifying request in-flight.
 webRequestBlocking | Required if an extension uses the `webRequest` API in a blocking fashion.
-

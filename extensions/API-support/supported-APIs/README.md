@@ -8,6 +8,7 @@ The following known issues span across the extension platform and will be fixed 
 
 - Regardless of any `catch()` statements, exceptions thown in the content script context by predefined JavaScript methods (such as `document.querySelector()`) will be dispatched to both the content script's and page's `window.onerror` handlers.
 - When using the CSS `url()` property, absolute urls using `ms-browser-extension://` will not work like they do in Chrome. To bypass this issue, use relative paths to resources (starting in the root extension directory) instead.
+- `window.open()` does not work in extension background scripts. Please use `browser.windows.create()` instead.
 
 ## browserAction
 
@@ -22,6 +23,7 @@ The following `browserAction` API are supported:
 | [browserAction.setBadgeBackgroundColor](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeBackgroundColor) | | |
 | [browserAction.onClicked](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/onClicked) | | |
 | [browserAction.setBadgeText](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeText)            | | |
+| [browserAction.setPopup](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/browserAction/setPopup)  | | |
 | [browserAction.getBadgeText](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeText)   | | |
 | [browserAction.setIcon](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setIcon) | `browserAction.setIcon` is not persisted. | |
 
@@ -64,6 +66,7 @@ The following `extension` API are supported:
 [extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension) | | |
 [extension.getBackgroundPage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/getBackgroundPage) | | |
 [extension.getURL](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/getURL) | | |
+[extension.getViews](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/extension/getViews) | | |
 
 
 ## i18n
@@ -76,6 +79,15 @@ API | Known issues | Chrome incompatibilities
 [i18n.getAcceptLanguages](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getAcceptLanguages) | | |
 [i18n.getMessage](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/i18n/getMessage) | `i18n.getMessage` with invalid key throws exception instead of failing gracefully.   `i18n.getMessage` argument expects strings, but should also allow an int or thow an exception. | |
 [i18n.getUILanguage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n/getUILanguage) | | |
+
+## idle
+
+API | Known issues | Chrome incompatibilities
+:------| :-------- | :---------------------
+[idle](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/idle) | | |
+[idle.setDetectionInterval](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/idle/setDetectionInterval) | | |
+[idle.queryState](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/idle/queryState) | | |
+[idle.onStateChanged](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/idle/onStateChanged) | | |
 
 
 ## pageAction
@@ -103,11 +115,13 @@ The following `runtime` API are supported:
 API | Known issues | Chrome incompatibilities
 :------------ | :------------- | :-------------------
 [runtime](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime) | | | 
+[runtime.connect](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/runtime/connect) | | |
 [runtime.id](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/id) | | |
 [runtime.getBackgroundPage](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/runtime/getBackgroundPage) | | | 
 [runtime.getManifest](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getManifest) | | |
 [runtime.getURL](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/getURL) | | |
 [runtime.lastError](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError) | | |
+[runtime.onConnect](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/runtime/onConnect) | | |
 [runtime.onInstalled](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onInstalled) | | | 
 [runtime.onMessage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage) | `tab` object in `runtime.onMessage` event is not fully implemented. | `MessageSender.tlsChannelId` is not supported in Microsoft Edge.|
 [runtime.sendMessage](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/runtime/sendMessage) | Microsoft Edge extension pages can use `runtime.sendMessage`/`onMessage` to send messages to themselves.   `runtime.sendmessage` is not supported from site pages. | Microsoft Edge does not support the `options` parameter.|
@@ -139,13 +153,15 @@ API | Known issues | Chrome incompatibilities
 [tabs.get](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/get) | Options pages, when asking about a tab not in their window, fail this call. | |
 [tabs.getCurrent](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/getCurrent) | | |
 [tabs.insertCSS](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/insertCSS) | `runAt` is ignored, though checked. | |
+[tabs.update](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs/update) | | |
 [tabs.onActivated](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onActivated) | | |
 [tabs.onCreated](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onCreated) | | |
 [tabs.onRemoved](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onRemoved) | | |
+[tabs.onReplaced](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/tabs/onReplaced) | | |
 [tabs.onUpdated](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/onUpdated) | After uninstall/reinstall, the URL is not received until Microsoft Edge is restarted. | |
 [tabs.query](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query) | `pinned`, `audible`, and `muted` are not yet supported.  `"popup"` `windowType` is not yet supported. | `highlighted` is not supported.   `"panel"`, `"app"`, and `"devtools"` `windowType` are not supported. |
 [tabs.remove](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/remove) | | |
-[tabs.sendMessage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage) | Messaging a specific frame is not yet supported. | | 
+[tabs.sendMessage](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/sendMessage) | Messaging a specific frame is not yet supported. `tabs.sendMessage` never sends a response after a tab refresh if no `runtime.onMessage` listeners are present on the receiving tab. | | 
 [tabs.Tab](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab) | `audible`, `mutedInfo`, `inPrivate`, `width`, and `height` properties are not yet supported. | `openerTabId`, `selected`, and `highlighted` properties are not supported. |
 [tabs.update](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/update) | `pinned` and `muted` are not yet supported. | `highlighted` and `selected` are not supported. |
 
@@ -199,7 +215,7 @@ API | Known issues | Chrome incompatibilities
 [windows.CreateType](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/windows/CreateType) | | `"panel"` and `"detached_panel"` are not supported in Microsoft Edge. |
 [windows.create](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/windows/create) | | |
 [windows.get](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/get) | | |
-[windows.getAll](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/getAll) | `window.getAll({populate: true})` is missing `tabs` property. | | |
+[windows.getAll](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/getAll) | `windows.getAll({populate: true})` is missing `tabs` property. | | |
 [windows.getCurrent](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/getCurrent) | | |
 [windows.getLastFocused](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/getLastFocused) | | |
 [windows.update](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/update) | Specifying position is not supported. | `"minimized"`/`"maximized"`/`"fullscreen"` and `drawAttention` are not supported in Microsoft Edge. |

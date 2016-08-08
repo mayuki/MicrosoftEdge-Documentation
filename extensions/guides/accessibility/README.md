@@ -14,13 +14,13 @@ Microsoftによって開発されたファーストパーティー拡張は要�
 ステッカー化をした場合、ほとんどが黒いアイコンがどんな背景色の上でも視認できるままになります。
 
 
-![image of icon being visible on any background color](../media/accessibility-light-to-dark-good.png)
+![image of icon being visible on any background color](../../media/accessibility-light-to-dark-good.png)
  
 #### ダメなアイコン
 ステッカー化をしていない場合、アイコンは背景と同化して見えなくなります。
 
 
-![image of icon blending into black background](../media/accessibility-light-to-dark-bad.png)
+![image of icon blending into black background](../../media/accessibility-light-to-dark-bad.png)
 
 ### 拡張のアイコンを"ステッカー化"
 
@@ -29,6 +29,4 @@ Microsoftによって開発されたファーストパーティー拡張は要�
 Step 1 | Step 2 | Step 3 | Step 4 | Step 5
 :---- | :----- | :------ | :------ | :------
 指定したグリッドにアイコンを納めます	| アイコンサイズを2ピクセル縮めます | その場にアイコンをコピー、ペーストし、2ピクセルで角丸の縁取りをします | 縁取りをアウトライン化して、複合パスを解除し、残ったシェイプを結合します	| 外側の縁を白く、アイコンを好きなように色付けします 
-![step1](../media/accessibility-step1.png) |![step2](../media/accessibility-step2.png) | ![step3](../media/accessibility-step3.png) | ![step4](../media/accessibility-step4.png) | ![step5](../media/accessibility-step5.png)
-  
- 
+![step1](../../media/accessibility-step1.png) |![step2](../../media/accessibility-step2.png) | ![step3](../../media/accessibility-step3.png) | ![step4](../../media/accessibility-step4.png) | ![step5](../../media/accessibility-step5.png)

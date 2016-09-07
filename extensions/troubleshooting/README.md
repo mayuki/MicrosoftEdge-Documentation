@@ -1,18 +1,10 @@
 ## トラブルシューティング
 
-<<<<<<< HEAD
-[https://dev.windows.com](http://www.aka.ms/msedge-extensions)からダウンロードしたパッケージングされていない拡張を読み込ませようとし、問題に遭遇した際には次のトラブルシューティングのトピックが役立つかもしれません:
-=======
-If you are trying to load unpacked extensions and are experiencing issues, the info below may help:
->>>>>>> refs/remotes/MicrosoftEdge/master
+パッケージングされていない拡張を読み込ませようとし、問題に遭遇した際には次のトラブルシューティングのトピックが役立つかもしれません:
 
 ### 1. "We couldn't load this extension"と表示された
 
-<<<<<<< HEAD
-これは、読み込ませようとした際にMicrosoft Edgeが拡張のフォルダーにアクセスできなかったことを意味することが大体です。拡張のフォルダーを削除して、.EXEを再度実行して、**Downloads**に作成された拡張のフォルダーからの読み込みを試してみてください。
-=======
-This usually means that Microsoft Edge cannot access the extension folder you attempted to load.
->>>>>>> refs/remotes/MicrosoftEdge/master
+これは、読み込ませようとした際にMicrosoft Edgeが拡張のフォルダーにアクセスできなかったことを意味することが大体です。
 
 以下は遭遇するかもしれない可能性のあるエラーの一覧です:
 

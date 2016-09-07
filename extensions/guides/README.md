@@ -1,17 +1,16 @@
-#  Guides
+# ガイド
 
-## Accessibility
-To ensure your extension's icon is visible while in both light and dark mode, follow the [accessibility](./accessibility) guide.
+## アクセシビリティー
+拡張のアイコンがライト、ダークモードのどちらでも視認できることを確実にするため、[アクセシビリティー](./accessibility)ガイドを参照してください。
 
-## Adding and removing extensions
-Learn how to [add and remove extensions](./adding-and-removing-extensions), as well as move an extension's button next to the address bar.
+## 拡張の追加と削除
+[拡張の追加と削除](./adding-and-removing-extensions)の方法についてはもちろん拡張のボタンをアドレスバーの横に移動することについて学びます。
 
+## 拡張のデバッグ
+F12 開発者ツールを使用して、拡張のバックグラウンドスクリプト、コンテンツスクリプト、拡張ページといった[拡張のデバッグ方法](./debugging-extensions)を学びます。
 
-## Debugging extensions
-With F12 Developer Tools, learn [how to debug an extension](./debugging-extensions)'s background script, content scripts, and extension pages.
+## 国際化
+拡張を異なる言語で利用できるようにし、[国際化](./internationalization)ガイドとともに言語文字列をテストします。
 
-## Internationalization
-Make your extension accessible for different languages and test your language strings with the [internationalization](./internationalization) guide.
-
-## Porting Chrome extensions
-See how to easily [port your Chrome extension to Microsoft Edge](./porting-Chrome-extensions) using the Microsoft Edge Extension Toolkit.
+## Chrome 拡張の移植
+Microsoft Edge Extension Toolkitを利用し、簡単に[Chrome 拡張を Microsoft Edge に移植](./porting-Chrome-extensions)する方法について。

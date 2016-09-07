@@ -1,13 +1,12 @@
-# Porting an extension from Chrome to Microsoft Edge
+# 拡張をChromeからMicrosoft Edgeに移植する
 
-Porting an extension from Chrome to Microsoft Edge is made easy with the help of the
-[Microsoft Edge Extension Toolkit](https://www.microsoft.com/store/p/microsoft-edge-extension-toolkit/9nblggh4txvb). This developer tool converts an unpacked Chrome extension to an unpacked Microsoft Edge extension by bridging APIs and surfacing any errors in your `manifest.json` file.
+拡張をChromeからMicrosoft Edgeに移植するのは[Microsoft Edge Extension Toolkit](https://www.microsoft.com/store/p/microsoft-edge-extension-toolkit/9nblggh4txvb)の助けを借りれば簡単に行えます。この開発者ツールはAPIをブリッジするとともに `manifest.json` ファイルにあるエラーを明らかにし、パッケージ化されていないChromeの拡張をパッケージ化されていないMicrosoft Edgeの拡張へと変換します。
 
 
-### API bridges
-In order to allow for seamless porting of Chrome APIs to supported Microsoft Edge APIs, two scripts are added to your extension's folder. These scripts bridge APIs (polyfiling where necessary), meaning you won't have to worry about changing any Chrome specific code in your background script or content scripts.
+### API ブリッジ
+Chrome APIからMicrosoft EdgeのAPIへシームレスな移植を可能にするため、2つのスクリプトが拡張のフォルダーに追加されます。それらのスクリプトはAPIをブリッジ(必要に応じてpolyfil)するため、バックグラウンドスクリプトまたはコンテンツスクリプトに含まれるChrome固有のコードの変更について心配する必要はないということを意味します。
 
-After conversion, you will see them included in the manifest file of your extension with the `"-ms-preload"` key:
+変換後、拡張のマニフェストファイルに `"-ms-preload"` キーとともに以下の項目が含まれていることに気がつくでしょう: 
 ```json
 "-ms-preload": {
   "backgroundScript": "backgroundScriptsAPIBridge.js",
@@ -15,17 +14,17 @@ After conversion, you will see them included in the manifest file of your extens
 }
 ```
 
-## Using the Microsoft Edge Extension Toolkit
-The following instructions detail how to convert your Chrome extension to run on Microsoft Edge in the Windows 10 Anniversary Update edition:
+## Microsoft Edge Extension Toolkitを利用する
+以下の手順はChromeの拡張をWindows 10 Anniversary Update エディションのMicrosoft Edgeでを変換し動かす方法についてです:
 
-1. Install the [Microsoft Edge Extension Toolkit](https://www.microsoft.com/store/p/microsoft-edge-extension-toolkit/9nblggh4txvb).
-2. Make a copy of your Chrome extension's folder for safe keeping. The conversion process will overwrite the code. 
-3. Run the Microsoft Edge Extension Toolkit and load the copy of your extension.  
+1. [Microsoft Edge Extension Toolkit](https://www.microsoft.com/store/p/microsoft-edge-extension-toolkit/9nblggh4txvb)をインストールします
+2. Chromeの拡張のフォルダーを安全のためにコピーします。変換処理はコードを上書きします 
+3. Microsoft Edge Extension Toolkit を実行し、拡張のコピーを読み込みます
  ![load extension button](../../media/save-folder.PNG)
-4. Correct all the errors that are reported within the tool's text editor. Select "Re-validate" to check for errors after making corrections.  
+4. ツールのテキストエディターに報告されるすべてのエラーを修正します。修正した後、"Re-validate" を選択してエラーをチェックします  
  ![extension-toolkit finding errors](../../media/extension-toolkit.png)
-5. Select "Save files".
+5. "Save files" を選択します
 
-You can now exit out of the toolkit and load your extension in Microsoft Edge! 
+これでToolkitを終了して、拡張をMicrosoft Edgeで読み込めます!
 
-You can search for known platform issues with the [EdgeHTML issue tracker](http://issues.microsoftedge.com). If you think you've found something new, [open an issue](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/new/)!
+既知のプラットフォームの問題を[EdgeHTML issue tracker](http://issues.microsoftedge.com)で探すことができます。もし新しい問題を見つけたと思ったら[issueをオープンしてください](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/new/)!
